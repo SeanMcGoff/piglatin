@@ -14,7 +14,7 @@ Next, enter the ```cmd/piglatin``` directory of the project and type
 
 ```make```
 
-into your terminal to build the project (must have Go installed, [install Go hereif not](https://golang.org/dl/))
+into your terminal to build the project (must have Go installed, [install Go here if not](https://golang.org/dl/))
 
 After that, the executable will be in the __bin__ folder. From there, you can move the executable wherever you want (i.e. /usr/bin if you are on a *nix system)
 
