@@ -1,25 +1,24 @@
 # piglatin
-A CLI written in Golang that translates any sentence in the English alphabet to Pig Latin :pig:
+A package/CLI written in Golang that translates any sentence in the English alphabet to Pig Latin :pig:
 
 # Installation
-At the moment, there is no other option but to build the project from source (sorry), but overall the process should be pretty painless.
 
-You first need to download the source code. This can either be done by clicking that big green button that says "Code" and downloading the compressed code, or by simply typing:
+`go get github.com/SeanMcGoff/piglatin`
 
-```git clone https://github.com/SeanMcGoff/piglatin.git```
+# Example
 
-in your terminal of choice (must have git installed, [install Git here if not](https://git-scm.com/downloads)).
+```go
 
-Next, enter the root directory of the project and type
+package main
 
-```make```
+import (
+	"fmt"
 
-into your terminal to build the project (must have Go installed, [install Go hereif not](https://golang.org/dl/))
+	"github.com/SeanMcGoff/piglatin"
+)
 
-After that, the executable will be in the __bin__ folder of the project. From there, you can move the executable wherever you want (i.e. /usr/bin if you are on a *nix system)
-
-# Usage
-
-```bash
-piglatin -t "English text goes here"
-``` 
+func main() {
+	text := piglatin.ToPigLatin("hello world")
+	fmt.Println(text) //ellohay orldway 
+}
+```

@@ -1,37 +1,15 @@
-package main
+package piglatin
 
 import (
 	"errors"
-	"flag"
-	"fmt"
-	"os"
 	"strings"
 )
 
 const alpha = "abcdefghijklmnopqrstuvwxyz"
 const vowels = "aeiou"
 
-func main() {
-	var text string
-	var help bool
-
-	flag.StringVar(&text, "t", "", "Input Text to Translate")
-	flag.BoolVar(&help, "help", false, "Display Usage Information")
-
-	flag.Parse()
-
-	if help || text == "" {
-		flag.PrintDefaults()
-		os.Exit(0)
-	}
-	pigLatin, err := toPigLatin(text)
-	if err != nil {
-		exitWithError(err)
-	}
-	fmt.Println(pigLatin)
-}
-
-func toPigLatin(s string) (string, error) {
+//ToPigLatin takes a string and returns its pig-latin translation.
+func ToPigLatin(s string) (string, error) {
 	words := strings.Fields(s)
 	if !isSliceAlphabetic(words) {
 		return "", errors.New("input must be strictly alphabetic")
@@ -52,11 +30,6 @@ func toPigLatin(s string) (string, error) {
 		}
 	}
 	return strings.Join(pl, " "), nil
-}
-
-func exitWithError(err error) {
-	fmt.Fprintf(os.Stderr, "error: %v\n", err)
-	os.Exit(1)
 }
 
 //isVowel returns a boolean that states whether a byte is a vowel (excluding Y for weird pig latin reasons)

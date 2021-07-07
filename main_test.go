@@ -1,11 +1,11 @@
-package main
+package piglatin
 
 import "testing"
 
 func TestToPigLatin(t *testing.T) {
 	t.Run("starts with singular consonant", func(t *testing.T) {
 		want := "ellohay orldway"
-		got, err := toPigLatin("hello world")
+		got, err := ToPigLatin("hello world")
 		if err != nil {
 			t.Error(err)
 		}
@@ -15,7 +15,7 @@ func TestToPigLatin(t *testing.T) {
 	})
 	t.Run("starts with consonant cluster", func(t *testing.T) {
 		want := "ellsmay outshay ancefray isphyllay"
-		got, err := toPigLatin("smell shout france phyllis")
+		got, err := ToPigLatin("smell shout france phyllis")
 		if err != nil {
 			t.Error(err)
 		}
@@ -25,7 +25,7 @@ func TestToPigLatin(t *testing.T) {
 	})
 	t.Run("starts with vowel", func(t *testing.T) {
 		want := "antyay eatersyay indulgeyay overyay umbrellasyay"
-		got, err := toPigLatin("ant eaters indulge over umbrellas")
+		got, err := ToPigLatin("ant eaters indulge over umbrellas")
 		if err != nil {
 			t.Error(err)
 		}
